@@ -1,0 +1,28 @@
+---
+#tasks file for tomcat
+
+# - name: download and extract binary
+#   unarchive: src=http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.11/bin/apache-tomcat-8.5.11.tar.gz dest=/usr/share remote_src=True
+#
+# - name: unarchive java
+#   unarchive: src=jdk-8u121-linux-x64.tar.gz dest=/usr/share
+#
+# - name: create tomcat user
+#   user: name=tomcat  state=present
+#
+# - name: create link
+#   file: src=/usr/share/apache-tomcat-8.5.11 dest=/usr/share/tomcat owner=tomcat group=root state=link
+#
+# - name: take ownership
+#   command: chown -R tomcat:root /usr/share/{{item}}
+#   with_items:
+#     - apache-tomcat-8.5.11
+#     - jdk1.8.0_121
+
+- name: Create environment variable
+  template: src=setenv.sh dest=/usr/share/tomcat/bin/setenv.sh owner=tomcat group=root mode=755
+
+- name: Create Unit file
+  template: src=tomcat.service dest=/etc/systemd/system/tomcat.service mode=644
+#   notify:
+#     - reload systemctl

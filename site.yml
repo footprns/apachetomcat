@@ -1,0 +1,9 @@
+---
+  - name: install apache and tomcat and connector
+    hosts: myself
+    remote_user: vagrant
+    become: yes
+
+    roles:
+    - apache
+    - tomcat

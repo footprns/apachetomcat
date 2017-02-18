@@ -1,0 +1,15 @@
+# create new
+ [Unit]
+Description=Apache Tomcat 8
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/share/tomcat/bin/startup.sh
+ExecStop=/usr/share/tomcat/bin/shutdown.sh
+RemainAfterExit=yes
+User=tomcat
+Group=root
+
+[Install]
+WantedBy=multi-user.target

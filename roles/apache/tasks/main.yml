@@ -1,0 +1,35 @@
+---
+# tasks file for apache
+
+- name: disable selinux
+  selinux: state=disabled
+
+- name: install apache
+  yum: name={{item}} state=present
+  with_items:
+    - httpd
+    - mod_ldap
+#
+- name: copy ajp connection
+  template: src=proxy_ajp.conf dest=/etc/httpd/conf.d/proxy_ajp.conf owner=root group=root mode=644
+  notify: restart httpd
+
+- name: copy mod_jk.so
+  copy: src=mod_jk.so dest=/etc/httpd/modules/mod_jk.so owner=root group=root mode=755 serole=system_u setype=httpd_modules_t
+#
+- name: copy httpd-jk.conf
+  template: src=httpd-jk.conf dest=/etc/httpd/conf.modules.d/httpd-jk.conf
+  notify: restart httpd
+#
+- name: copy properties file
+  template: src={{item}} dest=/etc/httpd/conf/{{item}}
+  with_items:
+    - uriworkermap.properties
+    - workers.properties
+  notify: restart httpd
+#
+# - name: service
+#   service: name={{item}} state=restarted
+#   with_items:
+#     - httpd
+#     - tomcat
