@@ -1,1 +1,1 @@
-JAVA_HOME="/usr/share/jdk1.8.0_121"
+JAVA_HOME={{user_home_dir}}/java

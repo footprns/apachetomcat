@@ -1,0 +1,3 @@
+---
+- name: create tomcat user
+  user: name={{service_account}} comment="Service Account to run application" uid=1040 home="{{user_home_dir}}" shell=/bin/bash

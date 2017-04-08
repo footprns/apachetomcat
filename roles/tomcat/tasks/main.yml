@@ -1,17 +1,71 @@
 ---
 #tasks file for tomcat
 
+- name: create directory
+  file: path="{{item.install_path}}" state=directory
+  with_items: "{{configuration}}"
+
+- name: download and extract binary
+  unarchive: src=http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.13/bin/apache-tomcat-8.5.13.tar.gz dest={{item.install_path}} remote_src=True
+  with_items: "{{configuration}}"
+
+- name: create link
+  file: src={{item.install_path}}/apache-tomcat-8.5.13 dest={{item.install_path}}/tomcat  state=link
+  with_items: "{{configuration}}"
+
+- name: unarchive java
+  unarchive: src=jdk-8u121-linux-x64.tar.gz dest={{user_home_dir}}
+- name: create link for java
+  file: src={{user_home_dir}}/jdk1.8.0_121 dest={{user_home_dir}}/java  state=link
+
+- name: Create environment variable
+  template: src=setenv.sh dest={{item.install_path}}/tomcat/bin/setenv.sh  mode=0755
+  with_items: "{{configuration}}"
+
+- name: modify server.xml with http and ajp port
+  template: src=server.xml dest={{item.install_path}}/tomcat/conf/server.xml
+  with_items: "{{configuration}}"
+
+# - name: create directory
+#   file: path=~/{{instance_name}}_{{item}} state=directory
+#   with_sequence: count=2
+
 # - name: download and extract binary
-#   unarchive: src=http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.11/bin/apache-tomcat-8.5.11.tar.gz dest=/usr/share remote_src=True
-#
+#   unarchive: src=http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.13/bin/apache-tomcat-8.5.13.tar.gz dest=~/{{instance_name}}_{{item}} remote_src=True
+#   with_sequence: count=2
+
+# - name: create link
+#   file: src=~/{{instance_name}}_{{item}}/apache-tomcat-8.5.13 dest=~/{{instance_name}}_{{item}}/tomcat  state=link
+#   with_sequence: count=2
+
+# - name: Create environment variable
+#   template: src=setenv.sh dest=~/{{instance_name}}_{{item}}/tomcat/bin/setenv.sh  mode=0755
+#   with_sequence: count=2
+
 # - name: unarchive java
-#   unarchive: src=jdk-8u121-linux-x64.tar.gz dest=/usr/share
+#   unarchive: src=jdk-8u121-linux-x64.tar.gz dest=~
+# - name: create link for java
+#   file: src=~/jdk1.8.0_121 dest=~/java  state=link
+
+# - name: modify server.xml with http and ajp port
+#   template: src=server.xml dest=~/{{instance_name}}_{{item}}/tomcat/conf/server.xml
+#   with_sequence: count=2
+
+# - name: Create Unit file
+#   template: src=tomcat.service dest=/etc/systemd/system/tomcat.service mode=644
+#   notify:
+#     - reload systemctl
+#  with_items: instance_1
+# - name: move files
+#   shell: src=~/{{instance_name}}_{{item}}/apache-tomcat-8.5.11 dest=~/{{instance_name}}_{{item}}/tomcat  state=link
+#   with_sequence: count=2
+
 #
 # - name: create tomcat user
 #   user: name=tomcat  state=present
 #
 # - name: create link
-#   file: src=/usr/share/apache-tomcat-8.5.11 dest=/usr/share/tomcat owner=tomcat group=root state=link
+#   file: src=~/apache-tomcat-8.5.11 dest=~/tomcat owner=tomcat group=root state=link
 #
 # - name: take ownership
 #   command: chown -R tomcat:root /usr/share/{{item}}
@@ -19,10 +73,9 @@
 #     - apache-tomcat-8.5.11
 #     - jdk1.8.0_121
 
-- name: Create environment variable
-  template: src=setenv.sh dest=/usr/share/tomcat/bin/setenv.sh owner=tomcat group=root mode=755
 
-- name: Create Unit file
-  template: src=tomcat.service dest=/etc/systemd/system/tomcat.service mode=644
+
+# - name: Create Unit file
+#   template: src=tomcat.service dest=/etc/systemd/system/tomcat.service mode=644
 #   notify:
 #     - reload systemctl

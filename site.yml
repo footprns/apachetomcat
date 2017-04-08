@@ -1,9 +1,18 @@
 ---
+  # - name: install apache and tomcat and connector
+  #   hosts: myself
+  #   remote_user: vagrant
+  #   become: yes
+  #   become_user: root
+  #   roles:
+  #     - common
+  #     - apache
+
   - name: install apache and tomcat and connector
     hosts: myself
     remote_user: vagrant
     become: yes
+    become_user: tomcat
 
     roles:
-    - apache
-    - tomcat
+      - tomcat
