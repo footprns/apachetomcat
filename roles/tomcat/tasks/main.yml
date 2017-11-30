@@ -5,16 +5,20 @@
   file: path="{{item.install_path}}" state=directory
   with_items: "{{configuration}}"
 
-- name: download and extract binary
-  unarchive: src=http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz dest={{item.install_path}} remote_src=True
-  with_items: "{{configuration}}"
+# - name: download and extract binary
+#   unarchive: src=http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz dest={{item.install_path}} remote_src=True
+#   with_items: "{{configuration}}"
 
 - name: create link
   file: src={{item.install_path}}/apache-tomcat-8.5.24 dest={{item.install_path}}/tomcat  state=link
   with_items: "{{configuration}}"
 
-- name: unarchive java
-  unarchive: src=http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jre-8u151-linux-x64.tar.gz dest={{user_home_dir}} remote_src=True
+- name: download java
+  script: "downloadjava.sh {{user_home_dir}}"
+# - name: unarchive java
+#   unarchive: src=https://edelivery.oracle.com/osdc/softwareDownload?fileName=V77629-01.zip&token=eXFKK3Frc2hiV2NpWE4yWDJzaEREQSE6OiFmaWxlSWQ9ODIwOTQ0MTImZmlsZVNldENpZD04MTQxMjkmcmVsZWFzZUNpZHM9MjUxMTUxJnBsYXRmb3JtQ2lkcz0zNSZkb3dubG9hZFR5cGU9OTU3NjEmYWdyZWVtZW50SWQ9Mzk0MDE2NSZlbWFpbEFkZHJlc3M9aW1hbmtAc2xiLmNvbSZ1c2VyTmFtZT1FUEQtSU1BTktAU0xCLkNPTSZjb3VudHJ5Q29kZT1BRSZzZWFyY2hTdHJpbmc9T3JhY2xlIEpSRQ dest={{user_home_dir}} remote_src=True
+- name: unzip java
+  file: src={{user_home_dir}}/jre-8u151-linux-x64.tar.gz dest={{user_home_dir}}
 - name: create link for java
   file: src={{user_home_dir}}/jre-8u151 dest={{user_home_dir}}/java  state=link
 

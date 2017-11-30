@@ -9,6 +9,7 @@
   with_items:
     - httpd
     - mod_ldap
+    - wget
 #
 - name: copy ajp connection
   template: src=proxy_ajp.conf dest=/etc/httpd/conf.d/proxy_ajp.conf owner=root group=root mode=644
