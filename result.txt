@@ -1,0 +1,340 @@
+C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-share-1.1.9/lib/vagrant-share.rb:10: [BUG] Segmentation fault
+ruby 2.4.2p198 (2017-09-14 revision 59899) [i386-mingw32]
+
+-- Control frame information -----------------------------------------------
+c:0013 p:0037 s:0088 e:000087 TOP    C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-share-1.1.9/lib/vagrant-share.rb:10 [FINISH]
+c:0012 p:---- s:0085 e:000084 CFUNC  :RGLoader_load
+c:0011 p:0207 s:0080 e:000079 TOP    C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-share-1.1.9/lib/vagrant-share.rb:16 [FINISH]
+c:0010 p:---- s:0073 e:000072 CFUNC  :require
+c:0009 p:0132 s:0068 e:000067 METHOD C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:55
+c:0008 p:0050 s:0056 e:000055 BLOCK  C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant.rb:314 [FINISH]
+c:0007 p:---- s:0049 e:000048 CFUNC  :each
+c:0006 p:0695 s:0045 E:001678 TOP    C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant.rb:310 [FINISH]
+c:0005 p:---- s:0036 e:000035 CFUNC  :require
+c:0004 p:0103 s:0031 e:000030 RESCUE C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:133
+c:0003 p:0429 s:0027 e:000026 METHOD C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:40
+c:0002 p:0241 s:0015 E:0006f4 EVAL   C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/bin/vagrant:62 [FINISH]
+c:0001 p:0000 s:0003 E:000dc0 (none) [FINISH]
+
+-- Ruby level backtrace information ----------------------------------------
+C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/bin/vagrant:62:in `<main>'
+C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:40:in `require'
+C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:133:in `rescue in require'
+C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:133:in `require'
+C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant.rb:310:in `<top (required)>'
+C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant.rb:310:in `each'
+C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant.rb:314:in `block in <top (required)>'
+C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-share-1.1.9/lib/vagrant-share.rb:16:in `<top (required)>'
+C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-share-1.1.9/lib/vagrant-share.rb:16:in `RGLoader_load'
+C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-share-1.1.9/lib/vagrant-share.rb:10:in `<encoded>'
+
+-- C level backtrace information -------------------------------------------
+C:\Windows\SYSTEM32\ntdll.dll(KiFastSystemCallRet+0x0) [0x778170b4]
+C:\Windows\system32\kernel32.dll(WaitForSingleObjectEx+0x43) [0x7656baf3]
+C:\Windows\system32\kernel32.dll(WaitForSingleObject+0x12) [0x7656baa2]
+C:\HashiCorp\Vagrant\embedded\mingw32\bin\msvcrt-ruby240.dll(rb_print_backtrace+0x40) [0x710f7e80]
+C:\Windows\SYSTEM32\ntdll.dll(EtwReplyNotification+0x366) [0x77847f1a]
+
+-- Other runtime information -----------------------------------------------
+
+* Loaded script: C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/bin/vagrant
+
+* Loaded features:
+
+    0 enumerator.so
+    1 thread.rb
+    2 rational.so
+    3 complex.so
+    4 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/enc/encdb.so
+    5 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/enc/trans/transdb.so
+    6 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/enc/windows_1252.so
+    7 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/unicode_normalize.rb
+    8 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/rbconfig.rb
+    9 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/compatibility.rb
+   10 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/defaults.rb
+   11 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/deprecate.rb
+   12 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/errors.rb
+   13 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/version.rb
+   14 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/requirement.rb
+   15 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/platform.rb
+   16 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/basic_specification.rb
+   17 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/stub_specification.rb
+   18 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/util/list.rb
+   19 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/stringio.so
+   20 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/specification.rb
+   21 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/exceptions.rb
+   22 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/dependency.rb
+   23 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/core_ext/kernel_gem.rb
+   24 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/monitor.rb
+   25 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb
+   26 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems.rb
+   27 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/path_support.rb
+   28 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/version.rb
+   29 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/config.rb
+   30 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/base.rb
+   31 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/singleton.rb
+   32 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/repository.rb
+   33 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/logevent.rb
+   34 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/loggerfactory.rb
+   35 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/staticlogger.rb
+   36 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/logger.rb
+   37 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/outputter/outputterfactory.rb
+   38 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/formatter/formatter.rb
+   39 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/outputter/outputter.rb
+   40 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/outputter/iooutputter.rb
+   41 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/outputter/fileoutputter.rb
+   42 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/outputter/consoleoutputters.rb
+   43 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/outputter/staticoutputter.rb
+   44 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/etc.so
+   45 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/fileutils.rb
+   46 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/outputter/rollingfileoutputter.rb
+   47 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/GDC.rb
+   48 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/MDC.rb
+   49 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/NDC.rb
+   50 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r/formatter/patternformatter.rb
+   51 C:/HashiCorp/Vagrant/embedded/gems/gems/log4r-1.1.10/lib/log4r.rb
+   52 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/pathname.so
+   53 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/pathname.rb
+   54 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/delegate.rb
+   55 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/tmpdir.rb
+   56 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/tempfile.rb
+   57 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/shared_helpers.rb
+   58 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/json/version.rb
+   59 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/ostruct.rb
+   60 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/json/generic_object.rb
+   61 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/json/common.rb
+   62 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/json/ext/parser.so
+   63 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/json/ext/generator.so
+   64 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/json/ext.rb
+   65 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/json.rb
+   66 C:/HashiCorp/Vagrant/embedded/gems/gems/childprocess-0.6.3/lib/childprocess/version.rb
+   67 C:/HashiCorp/Vagrant/embedded/gems/gems/childprocess-0.6.3/lib/childprocess/errors.rb
+   68 C:/HashiCorp/Vagrant/embedded/gems/gems/childprocess-0.6.3/lib/childprocess/abstract_process.rb
+   69 C:/HashiCorp/Vagrant/embedded/gems/gems/childprocess-0.6.3/lib/childprocess/abstract_io.rb
+   70 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/fcntl.so
+   71 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/2.4/ffi_c.so
+   72 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/platform.rb
+   73 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/types.rb
+   74 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/library.rb
+   75 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/errno.rb
+   76 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/pointer.rb
+   77 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/memorypointer.rb
+   78 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/struct_layout_builder.rb
+   79 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/struct.rb
+   80 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/union.rb
+   81 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/managedstruct.rb
+   82 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/callback.rb
+   83 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/io.rb
+   84 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/autopointer.rb
+   85 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/variadic.rb
+   86 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/enum.rb
+   87 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi/ffi.rb
+   88 C:/HashiCorp/Vagrant/embedded/gems/gems/ffi-1.9.18-x86-mingw32/lib/ffi.rb
+   89 C:/HashiCorp/Vagrant/embedded/gems/gems/childprocess-0.6.3/lib/childprocess/windows/lib.rb
+   90 C:/HashiCorp/Vagrant/embedded/gems/gems/childprocess-0.6.3/lib/childprocess/windows/structs.rb
+   91 C:/HashiCorp/Vagrant/embedded/gems/gems/childprocess-0.6.3/lib/childprocess/windows/handle.rb
+   92 C:/HashiCorp/Vagrant/embedded/gems/gems/childprocess-0.6.3/lib/childprocess/windows/io.rb
+   93 C:/HashiCorp/Vagrant/embedded/gems/gems/childprocess-0.6.3/lib/childprocess/windows/process_builder.rb
+   94 C:/HashiCorp/Vagrant/embedded/gems/gems/childprocess-0.6.3/lib/childprocess/windows/process.rb
+   95 C:/HashiCorp/Vagrant/embedded/gems/gems/childprocess-0.6.3/lib/childprocess/windows.rb
+   96 C:/HashiCorp/Vagrant/embedded/gems/gems/childprocess-0.6.3/lib/childprocess.rb
+   97 C:/HashiCorp/Vagrant/embedded/gems/gems/i18n-0.8.0/lib/i18n/version.rb
+   98 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/cgi/core.rb
+   99 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/cgi/escape.so
+  100 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/cgi/util.rb
+  101 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/cgi/cookie.rb
+  102 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/cgi.rb
+  103 C:/HashiCorp/Vagrant/embedded/gems/gems/i18n-0.8.0/lib/i18n/exceptions.rb
+  104 C:/HashiCorp/Vagrant/embedded/gems/gems/i18n-0.8.0/lib/i18n/interpolate/ruby.rb
+  105 C:/HashiCorp/Vagrant/embedded/gems/gems/i18n-0.8.0/lib/i18n.rb
+  106 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/digest.so
+  107 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/digest.rb
+  108 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/openssl.so
+  109 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/openssl/bn.rb
+  110 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/openssl/pkey.rb
+  111 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/openssl/cipher.rb
+  112 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/openssl/config.rb
+  113 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/openssl/digest.rb
+  114 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/openssl/x509.rb
+  115 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/openssl/buffering.rb
+  116 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/io/nonblock.so
+  117 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/openssl/ssl.rb
+  118 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/openssl.rb
+  119 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/version.rb
+  120 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/plugin.rb
+  121 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/registry.rb
+  122 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/set.rb
+  123 C:/HashiCorp/Vagrant/embedded/gems/gems/i18n-0.8.0/lib/i18n/config.rb
+  124 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/uri/rfc2396_parser.rb
+  125 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/uri/rfc3986_parser.rb
+  126 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/uri/common.rb
+  127 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/uri/generic.rb
+  128 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/uri/ftp.rb
+  129 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/uri/http.rb
+  130 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/uri/https.rb
+  131 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/uri/ldap.rb
+  132 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/uri/ldaps.rb
+  133 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/uri/mailto.rb
+  134 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/uri.rb
+  135 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/util.rb
+  136 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/io/console.so
+  137 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/user_interaction.rb
+  138 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/security/policy.rb
+  139 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/security/policies.rb
+  140 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/security/trust_dir.rb
+  141 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/security/signer.rb
+  142 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/security.rb
+  143 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/zlib.so
+  144 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/package/digest_io.rb
+  145 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/package/source.rb
+  146 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/package/file_source.rb
+  147 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/package/io_source.rb
+  148 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/package/old.rb
+  149 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/package/tar_header.rb
+  150 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/package/tar_reader/entry.rb
+  151 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/package/tar_reader.rb
+  152 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/package/tar_writer.rb
+  153 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/package.rb
+  154 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/tsort.rb
+  155 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/dependency_list.rb
+  156 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/request_set/gem_dependency_api.rb
+  157 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/request_set/lockfile/parser.rb
+  158 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/request_set/lockfile/tokenizer.rb
+  159 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/request_set/lockfile.rb
+  160 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/request_set.rb
+  161 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/gem_metadata.rb
+  162 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/errors.rb
+  163 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/dependency_graph/action.rb
+  164 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/dependency_graph/add_edge_no_circular.rb
+  165 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/dependency_graph/add_vertex.rb
+  166 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/dependency_graph/delete_edge.rb
+  167 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/dependency_graph/detach_vertex_named.rb
+  168 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/dependency_graph/set_payload.rb
+  169 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/dependency_graph/tag.rb
+  170 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/dependency_graph/log.rb
+  171 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/dependency_graph/vertex.rb
+  172 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/dependency_graph.rb
+  173 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/state.rb
+  174 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/modules/specification_provider.rb
+  175 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/delegates/resolution_state.rb
+  176 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/delegates/specification_provider.rb
+  177 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/resolution.rb
+  178 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/resolver.rb
+  179 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo/modules/ui.rb
+  180 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo/lib/molinillo.rb
+  181 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/molinillo.rb
+  182 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/activation_request.rb
+  183 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/conflict.rb
+  184 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/dependency_request.rb
+  185 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/requirement_list.rb
+  186 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/stats.rb
+  187 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/set.rb
+  188 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/api_set.rb
+  189 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/composed_set.rb
+  190 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/best_set.rb
+  191 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/current_set.rb
+  192 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/git_set.rb
+  193 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/index_set.rb
+  194 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/installer_set.rb
+  195 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/lock_set.rb
+  196 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/vendor_set.rb
+  197 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/source_set.rb
+  198 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/specification.rb
+  199 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/spec_specification.rb
+  200 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/api_specification.rb
+  201 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/git_specification.rb
+  202 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/index_specification.rb
+  203 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/installed_specification.rb
+  204 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/local_specification.rb
+  205 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/lock_specification.rb
+  206 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver/vendor_specification.rb
+  207 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/resolver.rb
+  208 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/source/git.rb
+  209 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/source/installed.rb
+  210 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/source/specific_file.rb
+  211 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/source/local.rb
+  212 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/source/lock.rb
+  213 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/source/vendor.rb
+  214 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/source.rb
+  215 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rdoc.rb
+  216 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rdoc/rubygems_hook.rb
+  217 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/rdoc.rb
+  218 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/uninstaller.rb
+  219 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/name_tuple.rb
+  220 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/util.rb
+  221 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/util/safe_env.rb
+  222 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/bundler.rb
+  223 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/plugin/state_file.rb
+  224 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/plugin/manager.rb
+  225 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/util/deep_merge.rb
+  226 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/config_file.rb
+  227 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/versions.rb
+  228 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/exception.rb
+  229 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/syntax_error.rb
+  230 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/psych.so
+  231 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/omap.rb
+  232 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/set.rb
+  233 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/class_loader.rb
+  234 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/strscan.so
+  235 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/scalar_scanner.rb
+  236 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/nodes/node.rb
+  237 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/nodes/stream.rb
+  238 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/nodes/document.rb
+  239 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/nodes/sequence.rb
+  240 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/nodes/scalar.rb
+  241 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/nodes/mapping.rb
+  242 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/nodes/alias.rb
+  243 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/nodes.rb
+  244 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/streaming.rb
+  245 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/visitors/visitor.rb
+  246 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/visitors/to_ruby.rb
+  247 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/visitors/emitter.rb
+  248 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/handler.rb
+  249 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/tree_builder.rb
+  250 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/visitors/yaml_tree.rb
+  251 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/json/ruby_events.rb
+  252 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/visitors/json_tree.rb
+  253 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/visitors/depth_first.rb
+  254 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/visitors.rb
+  255 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/parser.rb
+  256 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/coder.rb
+  257 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/core_ext.rb
+  258 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/date_core.so
+  259 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/date.rb
+  260 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/deprecated.rb
+  261 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/stream.rb
+  262 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/json/yaml_events.rb
+  263 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/json/tree_builder.rb
+  264 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/json/stream.rb
+  265 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych/handlers/document_stream.rb
+  266 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/psych.rb
+  267 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/psych_additions.rb
+  268 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/psych_tree.rb
+  269 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/yaml.rb
+  270 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/syck_hack.rb
+  271 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/enc/utf_16le.so
+  272 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/i386-mingw32/enc/utf_16be.so
+  273 C:/HashiCorp/Vagrant/embedded/mingw32/lib/ruby/2.4.0/rubygems/source_list.rb
+  274 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/plugin/v2/components.rb
+  275 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/plugin/v2/errors.rb
+  276 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/plugin/v2.rb
+  277 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/plugin/v2/plugin.rb
+  278 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/plugin/v2/manager.rb
+  279 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/plugin/v1/errors.rb
+  280 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/plugin/v1.rb
+  281 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/plugin/v1/plugin.rb
+  282 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/lib/vagrant/plugin/v1/manager.rb
+  283 C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-2.0.1/plugins/provisioners/chef/command_builder.rb
+  284 C:/HashiCorp/Vagrant/embedded/rgloader/rgloader24.mingw.so
+  285 C:/HashiCorp/Vagrant/embedded/rgloader/loader.rb
+
+[NOTE]
+You may have encountered a bug in the Ruby interpreter or extension libraries.
+Bug reports are welcome.
+For details: http://www.ruby-lang.org/bugreport.html
+
+
+This application has requested the Runtime to terminate it in an unusual way.
+Please contact the application's support team for more information.
