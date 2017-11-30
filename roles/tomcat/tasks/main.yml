@@ -6,17 +6,17 @@
   with_items: "{{configuration}}"
 
 - name: download and extract binary
-  unarchive: src=http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.13/bin/apache-tomcat-8.5.13.tar.gz dest={{item.install_path}} remote_src=True
+  unarchive: src=http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz dest={{item.install_path}} remote_src=True
   with_items: "{{configuration}}"
 
 - name: create link
-  file: src={{item.install_path}}/apache-tomcat-8.5.13 dest={{item.install_path}}/tomcat  state=link
+  file: src={{item.install_path}}/apache-tomcat-8.5.24 dest={{item.install_path}}/tomcat  state=link
   with_items: "{{configuration}}"
 
 - name: unarchive java
-  unarchive: src=jdk-8u121-linux-x64.tar.gz dest={{user_home_dir}}
+  unarchive: src=http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jre-8u151-linux-x64.tar.gz dest={{user_home_dir}} remote_src=True
 - name: create link for java
-  file: src={{user_home_dir}}/jdk1.8.0_121 dest={{user_home_dir}}/java  state=link
+  file: src={{user_home_dir}}/jre-8u151 dest={{user_home_dir}}/java  state=link
 
 - name: Create environment variable
   template: src=setenv.sh dest={{item.install_path}}/tomcat/bin/setenv.sh  mode=0755
@@ -31,11 +31,11 @@
 #   with_sequence: count=2
 
 # - name: download and extract binary
-#   unarchive: src=http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.13/bin/apache-tomcat-8.5.13.tar.gz dest=~/{{instance_name}}_{{item}} remote_src=True
+#   unarchive: src=http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz dest=~/{{instance_name}}_{{item}} remote_src=True
 #   with_sequence: count=2
 
 # - name: create link
-#   file: src=~/{{instance_name}}_{{item}}/apache-tomcat-8.5.13 dest=~/{{instance_name}}_{{item}}/tomcat  state=link
+#   file: src=~/{{instance_name}}_{{item}}/apache-tomcat-8.5.24 dest=~/{{instance_name}}_{{item}}/tomcat  state=link
 #   with_sequence: count=2
 
 # - name: Create environment variable
@@ -45,7 +45,7 @@
 # - name: unarchive java
 #   unarchive: src=jdk-8u121-linux-x64.tar.gz dest=~
 # - name: create link for java
-#   file: src=~/jdk1.8.0_121 dest=~/java  state=link
+#   file: src=~/jre-8u151 dest=~/java  state=link
 
 # - name: modify server.xml with http and ajp port
 #   template: src=server.xml dest=~/{{instance_name}}_{{item}}/tomcat/conf/server.xml
@@ -71,7 +71,7 @@
 #   command: chown -R tomcat:root /usr/share/{{item}}
 #   with_items:
 #     - apache-tomcat-8.5.11
-#     - jdk1.8.0_121
+#     - jre-8u151
 
 
 
