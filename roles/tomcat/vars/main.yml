@@ -5,7 +5,9 @@ configuration:
       http_port: 8080
       http_shutdown_port: 8005
       ajp_port: 8009
+      jmx_port: 9012
     - install_path: /home/tomcat/instance_b
       http_port: 8081
       http_shutdown_port: 8006
       ajp_port: 8010
+      jmx_port: 9013

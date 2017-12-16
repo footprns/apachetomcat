@@ -19,48 +19,40 @@
 #   unarchive: src=https://edelivery.oracle.com/osdc/softwareDownload?fileName=V77629-01.zip&token=eXFKK3Frc2hiV2NpWE4yWDJzaEREQSE6OiFmaWxlSWQ9ODIwOTQ0MTImZmlsZVNldENpZD04MTQxMjkmcmVsZWFzZUNpZHM9MjUxMTUxJnBsYXRmb3JtQ2lkcz0zNSZkb3dubG9hZFR5cGU9OTU3NjEmYWdyZWVtZW50SWQ9Mzk0MDE2NSZlbWFpbEFkZHJlc3M9aW1hbmtAc2xiLmNvbSZ1c2VyTmFtZT1FUEQtSU1BTktAU0xCLkNPTSZjb3VudHJ5Q29kZT1BRSZzZWFyY2hTdHJpbmc9T3JhY2xlIEpSRQ dest={{user_home_dir}} remote_src=True
 # - name: create folder
 #   file: path={{user_home_dir}}/jre-8u151 state=directory
-- name: unzip java
-  file: src={{user_home_dir}}/jre-8u151-linux-x64.tar.gz dest={{user_home_dir}}
-- name: create link for java
-  file: src={{user_home_dir}}/jre1.8.0_151 dest={{user_home_dir}}/java  state=link
+# - name: unzip java
+#   file: src={{user_home_dir}}/jre-8u151-linux-x64.tar.gz dest={{user_home_dir}}
+# - name: create link for java
+#   file: src={{user_home_dir}}/jre1.8.0_151 dest={{user_home_dir}}/java  state=link
 
 - name: Create environment variable
   template: src=setenv.sh dest={{item.install_path}}/tomcat/bin/setenv.sh  mode=0755
   with_items: "{{configuration}}"
-
-- name: modify server.xml with http and ajp port
-  template: src=server.xml dest={{item.install_path}}/tomcat/conf/server.xml
+- name: jmx access access
+  template: src=jmxremote.access dest={{item.install_path}}/tomcat/conf/jmxremote.access mode=0600 backup=yes
   with_items: "{{configuration}}"
-- name: allow manager context accessible from all ip
-  replace: path={{item.install_path}}/tomcat/webapps/manager/META-INF/context.xml regexp='0:0:0:0:0:0:0:1"' replace='0:0:0:0:0:0:0:1;\d*|.*;.*"' backup=yes
-  with_items: "{{configuration}}"
-- name: allow manager context accessible from all ip
-  lineinfile: path={{item.install_path}}/tomcat/webapps/manager/META-INF/context.xml insertafter='RemoteAddrValve' line='addConnectorPort="true"' backup=yes
+- name: jmx access password
+  template: src=jmxremote.password dest={{item.install_path}}/tomcat/conf/jmxremote.password mode=0600 backup=yes
   with_items: "{{configuration}}"
 
-- name: allow host-manager context accessible from all ip
-  replace: path={{item.install_path}}/tomcat/webapps/host-manager/META-INF/context.xml regexp='0:0:0:0:0:0:0:1"' replace='0:0:0:0:0:0:0:1;\d*|.*;.*"' backup=yes
-  with_items: "{{configuration}}"
-- name: allow host-manager context accessible from all ip
-  lineinfile: path={{item.install_path}}/tomcat/webapps/host-manager/META-INF/context.xml insertafter='RemoteAddrValve' line='addConnectorPort="true"' backup=yes
-  with_items: "{{configuration}}"
+# - name: modify server.xml with http and ajp port
+#   template: src=server.xml dest={{item.install_path}}/tomcat/conf/server.xml
+#   with_items: "{{configuration}}"
+# - name: allow manager context accessible from all ip
+#   replace: path={{item.install_path}}/tomcat/webapps/manager/META-INF/context.xml regexp='0:0:0:0:0:0:0:1"' replace='0:0:0:0:0:0:0:1;\d*|.*;.*"' backup=yes
+#   with_items: "{{configuration}}"
+# - name: allow manager context accessible from all ip
+#   lineinfile: path={{item.install_path}}/tomcat/webapps/manager/META-INF/context.xml insertafter='RemoteAddrValve' line='addConnectorPort="true"' backup=yes
+#   with_items: "{{configuration}}"
 
-- name: enable user
-  replace: path={{item.install_path}}/tomcat/conf/tomcat-users.xml regexp='^<!--' replace='#<!--' before='role rolename' backup=yes
-  with_items: "{{configuration}}"
-- name: enable user
-  replace: path={{item.install_path}}/tomcat/conf/tomcat-users.xml regexp='^-->' replace='#-->' before='</tomcat-users>' backup=yes
-  with_items: "{{configuration}}"
-- name: enable user
-  replace: path={{item.install_path}}/tomcat/conf/tomcat-users.xml regexp='password="<must-be-changed>"' replace='password="s3cret"'  backup=yes
-  with_items: "{{configuration}}"
-- name: role Manager
-  lineinfile: path={{item.install_path}}/tomcat/conf/tomcat-users.xml insertafter="rolename="role1"" line="<role rolename="manager-gui"/>" backup=yes
-  with_items: "{{configuration}}"
-- name: role Manager
-  lineinfile: path={{item.install_path}}/tomcat/conf/tomcat-users.xml insertafter="username="role1"" line="<user username="tomcat" password="s3cret" roles="manager-gui"/>" backup=yes
-  with_items: "{{configuration}}"
-
+# - name: allow host-manager context accessible from all ip
+#   replace: path={{item.install_path}}/tomcat/webapps/host-manager/META-INF/context.xml regexp='0:0:0:0:0:0:0:1"' replace='0:0:0:0:0:0:0:1;\d*|.*;.*"' backup=yes
+#   with_items: "{{configuration}}"
+# - name: allow host-manager context accessible from all ip
+#   lineinfile: path={{item.install_path}}/tomcat/webapps/host-manager/META-INF/context.xml insertafter='RemoteAddrValve' line='addConnectorPort="true"' backup=yes
+#   with_items: "{{configuration}}"
+# - name: enable user
+#   template: src=tomcat-users.xml dest={{item.install_path}}/tomcat/conf/tomcat-users.xml mode=0755 backup=yes
+#   with_items: "{{configuration}}"
 
 
 
