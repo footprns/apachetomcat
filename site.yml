@@ -9,10 +9,9 @@
   #     - apache
 
   - name: install apache and tomcat and connector
-    hosts: myself
-    remote_user: vagrant
+    hosts: tomcat
+    remote_user: imank
     become: yes
-    become_user: tomcat
-
+    become_user: root
     roles:
       - tomcat

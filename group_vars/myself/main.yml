@@ -1,4 +1,1 @@
 installation_path: /usr/share/apache-tomcat-8.5.11
-service_account: tomcat
-user_home_dir: /home/tomcat
-user_uid: 1004

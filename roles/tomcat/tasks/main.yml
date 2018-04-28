@@ -1,17 +1,47 @@
 ---
+#https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-centos-7
 #tasks file for tomcat
+- name: OpenJDK 7 JDK
+  yum: name={{item}} state=present
+  with_items:
+    - java-1.7.0-openjdk-devel
+- name: Create group for service account
+  group:
+    name: tomcat
+    state: present
 
-- name: create directory
-  file: path="{{item.install_path}}" state=directory
-  with_items: "{{configuration}}"
+- name: create tomcat user
+  user: name={{service_account}} comment="Service Account to run application" uid=1040 home=/opt/tomcat shell=/bin/bash groups=tomcat
 
-# - name: download and extract binary
-#   unarchive: src=http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz dest={{item.install_path}} remote_src=True
+- name: download and extract binary
+  unarchive: src=http://apache.mirrors.hoobly.com/tomcat/tomcat-7/v7.0.86/bin/apache-tomcat-7.0.86.tar.gz dest=/opt/tomcat remote_src=True
+
+# create a directory if it doesn't exist
+- file:
+    path: /opt/tomcat
+    state: directory
+    owner: tomcat
+    group: tomcat
+    recurse: yes
+    mode: 0755
+- name: create link for tomcat home
+  file: src=/opt/tomcat/apache-tomcat-7.0.86 dest=/opt/tomcat/tomcat  state=link
+- name: tomcat service script for init.d system
+  template: src=tomcat.init.d dest=/etc/init.d/tomcat  mode=0755
+
+- name: Start service httpd, if not running
+  service:
+    name: tomcat
+    enable: yes
+    # state: started
+# - name: create directory
+#   file: path="{{item.install_path}}" state=directory
 #   with_items: "{{configuration}}"
-
-- name: create link
-  file: src={{item.install_path}}/apache-tomcat-8.5.24 dest={{item.install_path}}/tomcat  state=link
-  with_items: "{{configuration}}"
+#
+#
+# - name: create link
+#   file: src={{item.install_path}}/apache-tomcat-8.5.24 dest={{item.install_path}}/tomcat  state=link
+#   with_items: "{{configuration}}"
 
 # - name: download java
 #   script: "downloadjava.sh {{user_home_dir}}"
@@ -24,15 +54,15 @@
 # - name: create link for java
 #   file: src={{user_home_dir}}/jre1.8.0_151 dest={{user_home_dir}}/java  state=link
 
-- name: Create environment variable
-  template: src=setenv.sh dest={{item.install_path}}/tomcat/bin/setenv.sh  mode=0755
-  with_items: "{{configuration}}"
-- name: jmx access access
-  template: src=jmxremote.access dest={{item.install_path}}/tomcat/conf/jmxremote.access mode=0600 backup=yes
-  with_items: "{{configuration}}"
-- name: jmx access password
-  template: src=jmxremote.password dest={{item.install_path}}/tomcat/conf/jmxremote.password mode=0600 backup=yes
-  with_items: "{{configuration}}"
+# - name: Create environment variable
+#   template: src=setenv.sh dest={{item.install_path}}/tomcat/bin/setenv.sh  mode=0755
+#   with_items: "{{configuration}}"
+# - name: jmx access access
+#   template: src=jmxremote.access dest={{item.install_path}}/tomcat/conf/jmxremote.access mode=0600 backup=yes
+#   with_items: "{{configuration}}"
+# - name: jmx access password
+#   template: src=jmxremote.password dest={{item.install_path}}/tomcat/conf/jmxremote.password mode=0600 backup=yes
+#   with_items: "{{configuration}}"
 
 # - name: modify server.xml with http and ajp port
 #   template: src=server.xml dest={{item.install_path}}/tomcat/conf/server.xml
