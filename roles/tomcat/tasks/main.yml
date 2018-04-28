@@ -32,8 +32,8 @@
 - name: Start service httpd, if not running
   service:
     name: tomcat
-    enable: yes
-    # state: started
+    enabled: yes
+    state: started
 # - name: create directory
 #   file: path="{{item.install_path}}" state=directory
 #   with_items: "{{configuration}}"
